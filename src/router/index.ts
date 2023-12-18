@@ -1,34 +1,44 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue'
+import Splashscreen from '@/views/Splashscreen.vue';
+import DashBoard from '@/views/main/DashBoard.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    redirect: '/tabs/tab1'
+    path: "/",
+    name: "splashscreen",
+    component: Splashscreen,
   },
   {
-    path: '/tabs/',
-    component: TabsPage,
+    path: "/dashboard",
+    component: DashBoard,
     children: [
       {
-        path: '',
-        redirect: '/tabs/tab1'
+        path: "",
+        redirect: "generales",
       },
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        path: "/generales",
+        component: () => import("@/views/main/tabs/Generales.vue"),
       },
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
+        path: "/sucursales",
+        component: () => import("@/views/main/tabs/Sucursales.vue"),
       },
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
-      }
-    ]
-  }
+        path: "/notificaciones",
+        component: () => import("@/views/main/tabs/Notificaciones.vue"),
+      },
+      {
+        path: "/tickets",
+        component: () => import("@/views/main/tabs/Tickets.vue"),
+      },
+      {
+        path: "/configuraciones",
+        component: () => import("@/views/main/tabs/Configuraciones.vue"),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({
