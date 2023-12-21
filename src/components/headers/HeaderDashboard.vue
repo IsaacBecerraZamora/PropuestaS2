@@ -1,6 +1,6 @@
 <template>
-    <nav class="relative bg-primary border-none rounded-b-3xl shadow-2xl -mb-5">
-      <div class="relative text-center justify-center mx-auto p-5 max-w-screen-xl">
+    <nav class="relative bg-primary sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96 opacity-100 shadow-2xl">
+      <div :class="optionClass">
         <a class="grid grid-cols-3 items-center">
           <span class="flex col-span-2 mx-auto text-left ml-5 text-xl font-semibold text-white">{{ props.titulo }}</span>
           <span class="col-span-1 text-right">
@@ -35,7 +35,14 @@
   <script setup lang="ts">
   import { IonIcon, useIonRouter } from '@ionic/vue';
   import { notifications, personCircle } from 'ionicons/icons';
+  import { onMounted, ref } from 'vue';
   
+  const optionClass = ref();
+
+  onMounted(() => {
+    optionClass.value = props.titulo === 'GENERALES' ? 'relative text-center justify-center mx-auto mb-8 p-4 max-w-screen-xl shadow-xl shadow-gray-800' : 'relative text-center justify-center mx-auto p-4 max-w-screen-xl';
+  });
+
   const ionRouter = useIonRouter();
   const notificaciones = () => {
     ionRouter.replace('/notificaciones');

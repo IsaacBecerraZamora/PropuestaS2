@@ -4,22 +4,30 @@
             <HeaderDashboard :titulo="'SUCURSALES'"></HeaderDashboard>
         </ion-header>
         <ion-content>
-            <div class="fixed bg-fixed h-screen w-screen bg-cover bg-no-repeat opacity-10 bg-[url(/Fondo.jpg)] z-0"></div>
-            <div
-            class="sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96">
-              <div class="mt-5">
-                   <span>SUCURSALES</span> 
-                </div>
-            </div>
+            <EmpresaInformacion :datos="informacionEmpresa"></EmpresaInformacion>
         </ion-content>
     </ion-page>
-    </template>
-    <script setup lang="ts">
-    import {
-        IonPage,
-        IonContent,
-        IonHeader
-    } from '@ionic/vue';
-    import HeaderDashboard from '@/components/headers/HeaderDashboard.vue';
-    </script>
+</template>
+<script setup lang="ts">
+import {
+    IonPage,
+    IonContent,
+    IonHeader,
+} from '@ionic/vue';
+import { ref } from 'vue';
+import HeaderDashboard from '@/components/headers/HeaderDashboard.vue';
+import EmpresaInformacion from '@/components/generales/EmpresaInformacion.vue';
+
+
+const informacionEmpresa = ref({
+        sucursal: "Sucursal",
+        dirección: "Dirección",
+        colonia: "colonia",
+        ciudad: "ciudad",
+        estado: "estado",
+        cp: "55120",
+        teléfono: "",
+        correo: "zamora.becerrsdfasd@@gmail.com",
+});
+</script>
     

@@ -33,7 +33,7 @@
   
   onMounted(async () => {
     await Helpers.delay(3000);
-    ionRouter.replace('/DashBoard');
+    ionRouter.replace('/autoregistro');
   });
   
   </script>

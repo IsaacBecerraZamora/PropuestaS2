@@ -2,12 +2,24 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Splashscreen from '@/views/Splashscreen.vue';
 import DashBoard from '@/views/main/DashBoard.vue';
+import AutoRegistro from '@/views/login/AutoRegistro.vue';
+import LoginPage from '@/views/login/LoginPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "splashscreen",
     component: Splashscreen,
+  },
+  {
+    path: "/autoregistro",
+    name: "autoregistro",
+    component: AutoRegistro,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginPage,
   },
   {
     path: "/dashboard",
