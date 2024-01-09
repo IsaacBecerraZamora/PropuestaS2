@@ -8,7 +8,7 @@
       <Input mode="numeric" placeholder="ID Usuario" v-model:modelValue="idUsuario" :maxlength="10" :required="true"
         :class="'uppercase'">
       <template v-slot:icon>
-        <IonIcon :icon="personOutline" class="h-4" />
+        <font-awesome-icon icon="fa-solid fa-user" class="h-4" />
       </template>
       </Input>
     </div>
@@ -17,7 +17,7 @@
       <Input mode="tel" placeholder="Celular" v-model:modelValue="celular" :maxlength="10" :required="true"
         :class="'uppercase'">
       <template v-slot:icon>
-        <IonIcon :icon="callOutline" class="h-5" />
+        <font-awesome-icon icon="fa-solid fa-phone" class="h-4" />
       </template>
       </Input>
     </div>
@@ -28,8 +28,6 @@
 </template>
 <script setup lang="ts">
 import Input from "@/components/generales/Input.vue";
-import { IonIcon } from "@ionic/vue";
-import { personOutline, callOutline } from "ionicons/icons";
 import { ref } from "vue";
 const idUsuario = ref("");
 const celular = ref("");

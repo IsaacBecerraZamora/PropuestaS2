@@ -4,10 +4,11 @@
       <HeaderDashboard :titulo="'GENERALES'" :curp="'BEZI980617HDFCMS09'" :id-cliente="'879462'"
         :nombre-usuario="'ISAAC BECERRA ZAMORA'"></HeaderDashboard>
     </IonHeader>
-    <ion-content>
-      <div class="fixed bg-fixed h-screen w-screen bg-cover bg-no-repeat opacity-10 bg-[url(/Fondo.jpg)] z-0"></div>
+    <ion-content >
+      <!--<div class="fixed bg-fixed h-screen w-screen bg-cover bg-no-repeat opacity-10 bg-[url(/Fondo.jpg)] z-0"></div>-->
+      <div class="fixed bg-fixed h-screen w-screen bg-cover bg-no-repeat bg-slate-50 z-0"></div>
       <div class="relative sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96">
-        <div class="mt-5">
+        <div class="mt-5 mb-20">
           <!-- <div v-if="listaClientes.length === 0">
                     <MainEmpty :mensaje="'Sin contenido que mostrar'"></MainEmpty>
                   </div>
@@ -44,14 +45,36 @@ const datosMandar = ref([{
   numero1: "$ 1,259.00",
   numero2: "$ 479.00",
   porcentaje: ".50",
-  vencimiento: "INMEDIATO",
+  vencimiento: "03/05/24",
 }, {
   idcredito: "846579",
   tipo: "Solidario",
   numero1: "$ 52,456.00",
   numero2: "$ 1,165.00",
   porcentaje: "1",
-  vencimiento: "INMEDIATO",
+  vencimiento: "Inmediato",
+},
+{
+  idcredito: "254863",
+  tipo: "Nomina",
+  numero1: "$ 100,456.00",
+  numero2: "$ 4,165.00",
+  porcentaje: ".71",
+  vencimiento: "Inmediato",
+},{
+  idcredito: "548152",
+  tipo: "Personal",
+  numero1: "$ 1,259.00",
+  numero2: "$ 479.00",
+  porcentaje: ".50",
+  vencimiento: "Inmediato",
+}, {
+  idcredito: "846579",
+  tipo: "Solidario",
+  numero1: "$ 52,456.00",
+  numero2: "$ 1,165.00",
+  porcentaje: "1",
+  vencimiento: "Inmediato",
 },
 {
   idcredito: "254863",
@@ -59,6 +82,6 @@ const datosMandar = ref([{
   numero1: "$ 1,000,456.00",
   numero2: "$ 4,165.00",
   porcentaje: ".71",
-  vencimiento: "INMEDIATO",
+  vencimiento: "Inmediato",
 }]);
 </script>

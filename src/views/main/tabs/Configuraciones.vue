@@ -1,15 +1,15 @@
 <template>
     <ion-page>
-        <ion-header class="border-b-white shadow-none">
-            <HeaderDashboard :titulo="'CONFIGURACIONES'"></HeaderDashboard>
+        <ion-header cclass="ion-no-border">
+            <HeaderDashboard :titulo="'CONFIGURACIONES'" :curp="'BEZI980617HDFCMS09'" :id-cliente="'879462'"
+                :nombre-usuario="'ISAAC BECERRA ZAMORA'"></HeaderDashboard>
         </ion-header>
         <ion-content>
-            <div class="fixed bg-fixed h-screen w-screen bg-cover bg-no-repeat opacity-10 bg-[url(/Fondo.jpg)] z-0">
-            </div>
+            <div class="fixed bg-fixed h-screen w-screen bg-cover bg-no-repeat bg-slate-50 z-0"></div>
             <div
-                class="relative sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96">
+                class="relative mb-20 sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96">
                 <div class="relative p-5">
-                    <div class="relative bg-slate-100 shadow-md rounded-md mr-5 ml-5 mt-14">
+                    <!-- <div class="relative bg-slate-100 shadow-md rounded-md mr-5 ml-5 mt-14">
                         <div class="text-center">
                             <label class="relative mt-5 inline-flex items-center mb-4 cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" :checked="mantenerSesion" @click="" />
@@ -19,7 +19,7 @@
                                 </div>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="mt-14">
                         <div class="m-5">
                             <button
@@ -46,18 +46,10 @@
                     <div class="text-center ml-1 mr-1">
                         <p class="font-semibold">Dudas? Escribenos a contacto@relampago.com.mx</p>
                     </div>
-                    <div class="flex mx-auto mt-28 mr-10 ml-10 items-center justify-center bg-transparent text-gray-600 font-bold">
-                        <div class="text-center">
-                          <p class="font-bold">V {{ VERSION }}</p>
-                          <div class="p-2">
-                            <p class="text-xs font-bold opacity-60">RED DE SERVICIOS FINANCIEROS, S.A. DE C.V. SOFOM ENR</p>
-                          </div>
-                        </div>
-                      </div>
                 </div>
             </div>
             <Modal v-if="variableAbrirModal == true" :warning="warning" :texto="texto" :titulo="titulo"
-        :abrir-modal="variableAbrirModal" @cerrar-modal="cerrarModal"></Modal>
+                :abrir-modal="variableAbrirModal" @cerrar-modal="cerrarModal"></Modal>
         </ion-content>
     </ion-page>
 </template>
@@ -68,11 +60,9 @@ import {
     IonHeader
 } from '@ionic/vue';
 import HeaderDashboard from '@/components/headers/HeaderDashboard.vue';
-import Input from "@/components/generales/Input.vue";
 import { ref } from "vue";
 import Modal from "@/components/generales/Modal.vue"
 import Helpers from '@/config/Helpers';
-import { VERSION } from "@/config/Constantes";
 
 const mantenerSesion = ref();
 const variableAbrirModal = ref(false);

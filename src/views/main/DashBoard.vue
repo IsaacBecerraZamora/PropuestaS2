@@ -1,40 +1,66 @@
 <template>
   <ion-page>
-          <ion-tabs>
-            <ion-router-outlet></ion-router-outlet>
-              <ion-tab-bar slot="bottom">
-                  <ion-tab-button tab="generales" class="bg-gray-200 hover:text-secondary" href="/generales">
-                      <ion-icon class="w-7 h-7  hover:text-secondary " :icon="wallet" />
-                      <!--<ion-label class="font-normal">Pendientes</ion-label>-->
-                  </ion-tab-button>
+    <ion-tabs>
+      <ion-router-outlet></ion-router-outlet>
+      <ion-tab-bar slot="bottom" class="h-16">
+        <ion-tab-button tab="pagos" class="bg-gray-200 hover:text-secondary" href="/pagar">
+          <div class="grid grid-rows-2 fixed mt-4">
+            <div class="row">
+              <font-awesome-icon icon="fa-solid fa-circle-dollar-to-slot" class="w-5 h-5 hover:text-secondary" />
+            </div>
+            <div class="row -mt-1">
+              <ion-label class="font-normal">Pagar</ion-label>
+            </div>
+          </div>
+        </ion-tab-button>
 
-                  <ion-tab-button tab="sucursales" class="comments bg-gray-200 border-r border-gray-200 hover:text-secondary" href="/sucursales">
-                      <ion-icon class="w-7 h-7  hover:text-secondary " :icon="business" />
-                      <!--<ion-label class="font-normal">Enviados</ion-label>-->
-                  </ion-tab-button>
+        <ion-tab-button tab="sucursales" class="comments bg-gray-200 border-r border-gray-200 hover:text-secondary"
+          href="/sucursales">
+          <div class="grid grid-rows-2 fixed mt-4">
+            <div class="row">
+              <font-awesome-icon icon="fa-solid fa-building" class="w-5 h-5 hover:text-secondary" />
+            </div>
+            <div class="row -mt-1">
+              <ion-label class="font-normal">Sucursal</ion-label>
+            </div>
+          </div>
+        </ion-tab-button>
+        <div class="mt-2">
+        <svg mode="md" height="100" viewBox="0 0 100 48" width="99" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="light" fill-rule="evenodd"></path>
+        </svg>
+      </div>
 
-                  <svg mode="md" height="100" viewBox="0 0 100 48" width="99" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="light"
-                          fill-rule="evenodd">
-                      </path>
-                  </svg>
+        <ion-tab-button tab="notificaciones" class="notifs bg-gray-200 border-l border-gray-200 hover:text-secondary"
+          href="/notificaciones">
+          <div class="grid grid-rows-2 fixed mt-4">
+            <div class="row">
+              <font-awesome-icon icon="fa-solid fa-bell" class="w-5 h-5 hover:text-secondary" />
+            </div>
+            <div class="row -mt-1">
+              <ion-label class="font-normal">Notificación</ion-label>
+            </div>
+          </div>
+        </ion-tab-button>
 
-                  <ion-tab-button tab="tickets" class="notifs bg-gray-200 border-l border-gray-200 hover:text-secondary" href="/tickets">
-                      <ion-icon class="w-7 h-7 hover:text-secondary " :icon="chatbubbles" />
-                     
-                  </ion-tab-button>
+        <ion-tab-button tab="configuracion" class="bg-gray-200 hover:text-secondary" href="/configuraciones">
+          <div class="grid grid-rows-2 fixed mt-4">
+            <div class="row">
+              <font-awesome-icon icon="fa-solid fa-screwdriver-wrench" class="w-5 h-5 hover:text-secondary" />
+            </div>
+            <div class="row -mt-1">
+              <ion-label class="font-normal">Configuración</ion-label>
+            </div>
+          </div>
+        </ion-tab-button>
 
-                  <ion-tab-button tab="configuracion" class="bg-gray-200 hover:text-secondary" href="/configuraciones">
-                      <ion-icon class="w-7 h-7 hover:text-secondary" :icon="cog" />
-                      
-                  </ion-tab-button>
-              </ion-tab-bar>
-              <ion-fab mode="md" style="bottom: 18px;" vertical="bottom" horizontal="center" translucent="true" >
-                  <ion-fab-button href="/notificaciones">
-                    <ion-icon class="w-8 h-8 hover:text-secondary" :icon="fileTrayFull"/>
-                  </ion-fab-button>
-              </ion-fab>
-          </ion-tabs>
+      </ion-tab-bar>
+      <ion-fab mode="md" style="bottom: 18px;" vertical="bottom" horizontal="center" translucent="true">
+        <ion-fab-button href="/generales" color="secondary">
+          <font-awesome-icon icon="fa-solid fa-book" class="fixed mb-5 w-6 h-6 hover:text-primary" />
+        </ion-fab-button>
+      </ion-fab>
+    </ion-tabs>
   </ion-page>
 </template>
 
@@ -47,9 +73,8 @@ import {
   IonTabButton,
   IonFab,
   IonFabButton,
-  IonIcon,
+  IonLabel,
 } from '@ionic/vue';
-import { cog, business, wallet, chatbubbles, fileTrayFull } from "ionicons/icons"; //musicalNotes
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/keyboard';
@@ -102,5 +127,4 @@ svg {
 .tab-selected {
   color: #ed6c25;
 }
-
 </style>

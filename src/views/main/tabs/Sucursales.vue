@@ -4,7 +4,7 @@
             <HeaderDashboard :titulo="'SUCURSALES'"></HeaderDashboard>
         </ion-header>
         <ion-content>
-            <EmpresaInformacion :datos="informacionEmpresa"></EmpresaInformacion>
+                <EmpresaInformacion :datos="informacionEmpresa"></EmpresaInformacion>
         </ion-content>
     </ion-page>
 </template>
@@ -20,14 +20,14 @@ import EmpresaInformacion from '@/components/generales/EmpresaInformacion.vue';
 
 
 const informacionEmpresa = ref({
-        sucursal: "Sucursal",
-        dirección: "Dirección",
-        colonia: "colonia",
-        ciudad: "ciudad",
-        estado: "estado",
-        cp: "55120",
-        teléfono: "",
-        correo: "zamora.becerrsdfasd@@gmail.com",
+    sucursal: "Sucursal",
+    dirección: "Dirección",
+    colonia: "colonia",
+    ciudad: "ciudad",
+    estado: "estado",
+    cp: "55120",
+    teléfono: "",
+    correo: "zamora.becerrsdfasd@@gmail.com",
 });
 </script>
     

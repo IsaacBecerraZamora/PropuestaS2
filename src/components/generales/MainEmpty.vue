@@ -2,7 +2,7 @@
     <div class="absolute inset-0 flex items-center justify-center opacity-10">
     <ion-row class="text-center">
         <ion-col size="12">
-            <ion-icon :icon="alertCircleOutline" class="w-36 h-36 text-primary"></ion-icon>
+            <font-awesome-icon icon="fa-solid fa-circle-exclamation" class="w-36 h-36 text-primary" />
             <ion-text class="ion-margin-top">
                 <p class="text-3xl">{{ props.mensaje }}</p>
             </ion-text>
@@ -12,8 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonCol, IonIcon, IonRow, IonText } from '@ionic/vue';
-import { alertCircleOutline } from 'ionicons/icons';
+import { IonCol, IonRow, IonText } from '@ionic/vue';
 
 const props = defineProps({
     mensaje: String

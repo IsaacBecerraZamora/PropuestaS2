@@ -12,7 +12,7 @@
           :error="errores.tokenerror"
         >
           <template v-slot:icon>
-            <IonIcon :icon="codeWorkingOutline" class="h-4" />
+            <font-awesome-icon icon="fa-solid fa-code" class="h-4" />
           </template>
         </Input>
       </div>
@@ -26,8 +26,7 @@
   
   <script setup lang="ts">
   import Input from "@/components/generales/Input.vue";
-  import { codeWorkingOutline } from "ionicons/icons";
-  import { IonIcon, useIonRouter } from "@ionic/vue";
+  import { useIonRouter } from "@ionic/vue";
   import { ref } from "vue";
   
   const token = ref("");

@@ -1,12 +1,12 @@
 <template>
-    <ion-list mode="md" class="shadow-xl rounded-3xl mr-5 mb-3 ml-5">
+    <ion-list mode="md" class="shadow-xl rounded-md border-t-8 mr-5 mb-3 ml-5" :class="colorCardBorder">
         <!-- <ion-item-sliding>-->
-        <ion-item @click="openMenu" class="sin-linea border-l-8 rounded-l-xl" :class="colorCardBorder" lines="none">
+        <ion-item @click="openMenu" class="sin-linea" lines="none">
             <div class="w-full mx-auto">
                 <table class="w-full mx-auto mb-2 mt-2 font-semibold">
                     <tbody>
                         <tr class="text-sm">
-                            <td><span class="ml-2">ID Crédito:</span><span class="ml-1">{{ props.datosCliente?.idcredito
+                            <td><span class="ml-2">Crédito:</span><span class="ml-1">{{ props.datosCliente?.idcredito
                             }}</span></td>
                             <td class="text-right"><span class="mr-2">{{ props.datosCliente?.tipo }}</span></td>
                         </tr>
@@ -18,7 +18,7 @@
                     </tbody>
                 </table>
                 <ion-progress-bar :value="datoCampo" :buffer="100" :color="colorCardProgress"
-                    class="h-6 rounded-full bg-stone-300 mt-1">
+                    class="h-6 rounded-md bg-stone-300 mt-1">
                 </ion-progress-bar>
                 <p class="relative -mt-6 mr-2 text-white font-normal text-center z-50"><span class="mr-1">{{
                     datoProgress }}</span>%</p>
@@ -41,6 +41,7 @@
 import { IonList, IonItem, IonProgressBar, useIonRouter } from '@ionic/vue'
 import { PropType, onMounted, ref } from 'vue';
 import { DatosCardGenerales } from '@/interfaces/DatosCardGenerales';
+import storage from '@/storage';
 
 const router = useIonRouter();
 
@@ -48,6 +49,7 @@ const datoCampo = ref();
 const datoProgress = ref();
 const colorCardProgress = ref();
 const colorCardBorder = ref();
+const datosTabs = ref();
 
 const props = defineProps({
     datosCliente: Object as PropType<DatosCardGenerales>,
@@ -57,7 +59,9 @@ const props = defineProps({
     valorRouter: String,
 })
 
-onMounted(() => {
+onMounted(async () => {     
+     datosTabs.value = props.datosCliente;
+
     if (props.datosCliente?.porcentaje == '1') {
         datoCampo.value = '100';
     } else {
@@ -68,7 +72,6 @@ onMounted(() => {
 
     colorCardProgress.value = props.datosCliente?.porcentaje === '1' ? 'danger' : 'primary';
     colorCardBorder.value = props.datosCliente?.porcentaje === '1' ? 'border-danger' : 'border-primary';
-
 });
 
 const emit = defineEmits(['enviarInformacionBorrar']);
@@ -78,8 +81,10 @@ function quitarPuntos(cadena: string) {
     return cadena.replace(/\./g, '');
 }
 
-const openMenu = async (token: string) => {
-    // router.push("/formularios");
+const openMenu = async () => {    
+    const serializedDatosTabs = JSON.stringify(datosTabs.value);
+    await storage.set("informacionCard", serializedDatosTabs);
+    router.push("/informacion");
 };
 
 </script>

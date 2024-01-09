@@ -2,16 +2,14 @@
     <ion-page>
         <ion-content :fullscreen="false">
             <nav
-                class="relative bg-primary border-gray-200 sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96 border opacity-100 rounded-lg shadow-2xl">
+                class="relative border-primary bg-primary sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96 border opacity-100">
                 <div class="mt-5 mb-10">
                     <img src="/relampago.png" alt="s2red-usuarios" class="w-[80%] lg:w-[30%] xl:w-[20%] mx-auto relative" />
                   </div>
             </nav>
             <div
-                class="relative overflow-hidden -mt-10 p-1 rounded-t-3xl bg-gray-50 sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96 bg-no-repeat pb-5 z-50 border border-gray-50 opacity-100 rounded-lg">
+                class="relative overflow-hidden -mt-10 p-1 rounded-t-3xl bg-white sm:mr-10 sm:ml-10 md:mr-40 md:ml-40 lg:mr-60 lg:ml-60 xl:mr-80 xl:ml-80 2xl:mr-96 2xl:ml-96 pb-5 z-50 opacity-100 rounded-lg">
                 <div class="grid grid-cols-4 xl:grid-cols-12 gap-4">
-                    <div class="absolute bg-fixed h-screen w-screen bg-cover bg-no-repeat opacity-10 bg-[url(/Fondo.jpg)] z-0">
-                    </div>
                     <div class="relative col-span-4 lg:col-start-2 lg:col-span-2 xl:col-start-5 xl:col-span-4 p-4 my-[1%]">
                         <div class="relative text-center justify-center mx-auto">
                             <a class="pl-5 pr-5 pt-1 items-center">
@@ -22,14 +20,12 @@
                         <VerificarSms @regresar="regresar" v-if="showVerificador"></VerificarSms>
                     </div>
                 </div>
-                <img src="/s2credit.png" class="w-[40%] my-10 mx-auto bg-cover" />
             </div>
         </ion-content>
-        <ion-footer class="text-center pl-2 pr-2 pt-2 bg-white text-gray-600 font-bold">
-            <p class="font-bold">V {{ VERSION }}</p>
-          <div class="text-center justify-center pl-24 pr-24 p-2">
-            <p class="text-xs font-bold opacity-60">RED DE SERVICIOS FINANCIEROS, S.A. DE C.V. SOFOM ENR</p>
-          </div>
+        <ion-footer :translucent="true" class="ion-no-border">
+           <ion-toolbar class="text-center p-2 text-gray-600 font-bold">
+            <img src="/s2credit.png" class="w-[20%] my-3 mx-auto bg-cover" />
+        </ion-toolbar>
         </ion-footer>
     </ion-page>
 </template>
@@ -39,14 +35,14 @@ import VerificarSms from "@/components/autoregistro/VerificarSms.vue";
 import VerificarUsuario from "@/components/autoregistro/VerificarUsuario.vue";
 import { VERSION } from "@/config/Constantes";
 import Helpers from "@/config/Helpers";
-import { IonContent, IonFooter, IonPage } from "@ionic/vue";
+import { IonContent, IonFooter, IonPage, IonToolbar } from "@ionic/vue";
 import { onMounted, ref } from "vue";
 
 const showVerificador = ref(false);
 
 onMounted(async () => {
     Helpers.checkStatusBarOverlay(false);
-    await Helpers.checkStatusBar("#025436");
+    await Helpers.checkStatusBar("#02666a");
 
 });
 
@@ -62,9 +58,3 @@ const regresar = (dato: any) => {
   }
 }
 </script>
-<style scoped>
-.absolute.bg-fixed {
-  background-size: cover; /* Ajusta según sea necesario */
-  /* Otros estilos... */
-}
-</style>
